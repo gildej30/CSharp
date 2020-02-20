@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dish
+
+<h1>Welcom to CRUDelicous</h1>
+<p>Check out some recent dishes below or add your own dish!</p>
+<a class="btn btn-success" asp-action="New" role="button">ADD DISH</a><br>
+
+<div>
+    @foreach(var d in @ViewBag.Dishes)
+    {
+        <p><a asp-action="Display" asp-controller="Home" asp-route-id="@d.DishID" >@d.Name</a> by @d.Chef</p>
+    }
+</div>

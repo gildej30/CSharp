@@ -1,0 +1,16 @@
+@model Dish
+
+<div>
+    <h1>@Model.Name</h1><br>
+    <h3>by @Model.Chef</h3>
+    <p>@Model.Description</p>
+    <p><b>Tastiness level:</b> @Model.Tastiness</p>
+    <p><b>Total Calories:</b> @Model.Calories</p>
+</div>
+
+<div>
+    <a class="btn btn-primary" href="/" role="button">Home</a><br>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.DishID" asp-controller="Home"  role="button">Edit</a><br>
+    <a class="btn btn-danger"  asp-action="Delete" asp-route-id="@Model.DishID" asp-controller="Home"  role="button">Delete</a><br>
+</div>
+

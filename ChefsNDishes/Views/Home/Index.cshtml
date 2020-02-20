@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Chef>
+
+<div class="text-center">
+    <h1 class="display-4"><u>Chefs</u> & Dishes</h1>
+    <a class="btn btn-primary" asp-action="ShowDish" asp-controller="Home" role="button" >Dishes</a><br>
+    <a class="btn btn-success" asp-action="NewChef" asp-controller="Home" role="button" style="margin-top: 5px; margin-bottom: 5px;" >ADD CHEF</a>
+</div>
+
+<table class="list-group">
+        <li class="list-group-item list-group-item-dark">List of our chefs:</li>
+    @foreach(var c in Model)
+    {
+            <li class="list-group-item list-group-item-secondary" asp-action="ShowChef" asp-route-id="@c.ChefId" asp-controller="Home">@c.FirstName @c.LastName Age:@c.Age() Number of Dishes: @c.ChefDishes.Count </li>
+    }
+</div>

@@ -1,0 +1,17 @@
+@model Transaction
+
+<h1>Welcome, @ViewBag.User.FirstName</h1>
+
+<div class="card col-5 mx-auto" >
+    <p>Balance: @ViewBag.Balance</p>
+</div>
+
+<form class="col-3 mx-auto" asp-action="Process" asp-controller="Bank" method="post">
+    <div asp-validation-summary="All"></div> @* THIS VALIDATES EVERYTHING SO YOU YOU 'SPAN' THEM INDIVIDUALLY *@
+        <input type="hidden" asp-for="UserId" value="@ViewBag.User.UserId">
+            <div class="form-group">
+                <label asp-for="Amount" type="number"></label>
+                <input class="form-control" asp-for="Amount">
+            </div>
+        <input type="submit" value="Submit">
+</form>

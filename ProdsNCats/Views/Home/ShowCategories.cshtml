@@ -1,0 +1,27 @@
+@model Association
+
+<h1 class="mx-auto col-5">Product: @ViewBag.Category.Name</h1>
+
+<div class="row justify-content-around">
+    <div class="col-5">
+        <h2>Products:</h2>
+        @foreach(var p in @ViewBag.Category.Products)
+        {
+            <p>@p.Prod.Name</p>
+        }
+    </div>
+    <form class="col-5" asp-action="Process" asp-controller="Home" asp-route-status="category">
+        <input type="hidden" asp-for="CategoryId" value="@ViewBag.Category.CategoryId">
+        <div class="form-group">
+            <label>Products:</label>
+            <select class="form-control" asp-for="ProductId">
+                @foreach(var p in ViewBag.NotOnCategory)
+                {
+                    <option value="@p.ProductId">@p.Name</option>
+                } 
+            </select>
+        </div>
+        <input type="submit" value="Add Product to Category">
+    </form>
+
+</div>
